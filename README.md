@@ -21,6 +21,9 @@
 5. 外部・内部リンクは GFM 構文 (`[text](./path)`) を用い、パスは **相対指定** を原則とします。
 6. 各ページの最上位は `# タイトル` を 1 つだけ置き、見出し階層で内容を整理してください。
 7. 画像を利用する場合は `docs/images/`（または同階層の `images/`）に保存し、ファイル名は `kebab-case`、拡張子は `webp/png` を推奨。MDX では `![alt](./images/example.webp)` のように **相対パス** で参照します（Nextra が自動的に `<Image>` に変換）。
+   - ページ固有の画像は **同じフォルダ内の `images/` サブフォルダ** に置くと可搬性が高くなる。
+   - 複数ページで再利用するものは `docs/images/common/` へ置き、path を `../images/common/foo.webp` で指定。
+   - **Next.js の最適化** を使いたい場合は `next.config.mjs` で `images.unoptimized=false` とし、相対パスのままで OK（Nextra が自動で `<Image>` に置換）。
 8. Nextra の組み込みコンポーネント（例: `<Callout>`, `<Table>`）を積極的に利用し、一貫した UX を保ちます。 
 
 ---
